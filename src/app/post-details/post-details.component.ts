@@ -9,17 +9,15 @@ import {Post} from '../post.model';
 })
 export class PostDetailsComponent implements OnInit {
 
-  
+
   posts: any = [];
 
   constructor(private ps:PostService){}
 
   ngOnInit(){
-    //this.posts = this.ps.getPosts();
+    
     this.ps.getPostsData().subscribe(data => {
-        this.posts = data.posts;
+        this.posts = data;
     });
-
-
    }
 }

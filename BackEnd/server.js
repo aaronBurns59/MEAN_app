@@ -3,6 +3,17 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://admin:hello1@ds239873.mlab.com:39873/posts';
+mongoose.connect(mongoDB);
+
+var Schema = mongoose.Schema;
+var postSchema = new Schema({
+    title: String,
+    content: String
+})
+var PostModel = mongoose.model('post', postSchema);
+
 //Here we are configuring express to use body-parser as middle-ware. 
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json());
@@ -28,27 +39,18 @@ app.post('/api/posts', function(req, res){
     console.log("post successful");
     console.log(req.body.title);
     console.log(req.body.content);
+
+    PostModel.create({
+        title: req.body.title,
+        content: req.body.content
+    });
 })
 
 app.get('/api/posts', function(req, res){
-
-    const posts = 
-    [
-        { 
-            "id": "fadf12421l", 
-            "title": "First server-side post", 
-            "content": "This is coming from the server" 
-        }, 
-        { 
-            "id": "ksajflaj132", 
-            "title": "Second server-side post", 
-            "content": "This is coming from the server!" 
-        }
-    ];
-
-    res.status(200).json({posts:posts})
+    PostModel.find(function(err, post){
+        res.json(post);
+    });
 })
-
 
 var server = app.listen(8081, function () {
    var host = server.address().address
