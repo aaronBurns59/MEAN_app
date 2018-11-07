@@ -9,15 +9,22 @@ import {Post} from '../post.model';
 })
 export class PostDetailsComponent implements OnInit {
 
-
   posts: any = [];
 
   constructor(private ps:PostService){}
 
-  ngOnInit(){
-    
+  ngOnInit(){  
     this.ps.getPostsData().subscribe(data => {
         this.posts = data;
     });
    }
-}
+   
+   onDelete(id:string)
+  {
+    console.log("Delete button works " + id);
+    this.ps.deletePost(id).subscribe(()=>
+    {
+      this.ngOnInit();
+    });//lambda/Arrow function
+  }//onDelete
+}//PostDetailsComponent
