@@ -45,6 +45,7 @@ app.post('/api/posts', function(req, res){
         title: req.body.title,
         content: req.body.content
     });
+    res.send("Post added successfully");
 })
 
 app.get('/api/posts', function(req, res){
