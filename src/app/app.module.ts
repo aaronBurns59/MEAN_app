@@ -15,6 +15,7 @@ import { MatInputModule,
   MatToolbarModule,
   MatExpansionModule} from '@angular/material';
 import { PostCreateComponent } from './post-create/post-create.component';
+import { PostUpdateComponent } from './post-update/post-update.component';
 
 const appRoutes: Routes = [
   {
@@ -24,15 +25,19 @@ const appRoutes: Routes = [
   {
     path: 'create',
     component: PostCreateComponent
+  },
+  {
+    path: 'update/:id',
+    component: PostUpdateComponent
   }
 ];
-
 
 @NgModule({
   declarations: [
     AppComponent,
     PostDetailsComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    PostUpdateComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
