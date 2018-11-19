@@ -27,17 +27,7 @@ app.use(function(req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept");
     next();
     });
-/*
-app.post('/name', function(req, res){
-    res.send("Hello you sent " +
-    req.body.firstname + " " +
-    req.body.lastname);
-})
 
-app.get('/', function (req, res) {
-   res.send('Hello from Express');
-})
-*/
 //writes a new entry into the database 
 app.post('/api/posts', function(req, res){
     console.log("post successful");
