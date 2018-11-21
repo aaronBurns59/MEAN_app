@@ -15,7 +15,7 @@ var postSchema = new Schema({
     content: String,
     race: String,
     background: String,
-    level: Number
+  //  level: Number
 })
 var PostModel = mongoose.model('post', postSchema);
 
@@ -38,14 +38,14 @@ app.post('/api/posts', function(req, res){
     console.log(req.body.content);
     console.log(req.body.race);
     console.log(req.body.background);
-    console.log(req.body.level);
+   // console.log(req.body.level);
 
     PostModel.create({
         title: req.body.title,
         content: req.body.content,
         race: req.body.race,
         background: req.body.background,
-        level: req.body.level
+      //  level: req.body.level
     });
     res.send("Post added successfully");
 })
@@ -72,7 +72,7 @@ app.put('/api/posts/:id', function(req, res){
     console.log(req.body.content);
     console.log(req.body.race);
     console.log(req.body.background);
-    console.log(req.body.level);
+    //console.log(req.body.level);
 
     PostModel.findByIdAndUpdate(req.params.id, req.body, function(err, data)
     {
