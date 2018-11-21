@@ -73,6 +73,7 @@ app.put('/api/posts/:id', function(req, res){
     console.log(req.body.race);
     console.log(req.body.background);
     //console.log(req.body.level);
+    ////////LATEST COMMIT WORKED
 
     PostModel.findByIdAndUpdate(req.params.id, req.body, function(err, data)
     {
