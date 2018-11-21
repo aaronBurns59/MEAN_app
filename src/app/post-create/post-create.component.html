@@ -1,7 +1,7 @@
 <mat-card>
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field>
-      <input
+      <input placeholder="Name"
         matInput
         type="text"
         name="title"
@@ -11,8 +11,9 @@
         #title="ngModel">
       <mat-error *ngIf="title.invalid">Character's name.</mat-error>
     </mat-form-field>
+
     <mat-form-field>
-      <input
+      <input placeholder="Class"
         matInput
         rows="4"
         name="content"
@@ -21,8 +22,20 @@
         #content="ngModel">
       <mat-error *ngIf="content.invalid">Character's class.</mat-error>
     </mat-form-field>
+
     <mat-form-field>
-      <input
+        <input placeholder="Race"
+          matInput
+          type= "text"
+          name="race"
+          ngModel
+          required
+          #race="ngModel">
+        <mat-error *ngIf="race.invalid">Character's Race.</mat-error>
+      </mat-form-field>
+
+    <mat-form-field>
+      <input placeholder="Background"
         matInput
         type="text"
         name="background"
@@ -30,8 +43,9 @@
         required
         minlength="3"
         #background="ngModel">
-      <mat-error *ngIf="background.invalid">Please enter a post title.</mat-error>
+      <mat-error *ngIf="background.invalid">Character's Background.</mat-error>
     </mat-form-field>
+
     <button mat-button 
       color="primary"
       type="submit">Save Post</button>

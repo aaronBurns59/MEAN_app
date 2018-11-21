@@ -13,6 +13,7 @@ var Schema = mongoose.Schema;
 var postSchema = new Schema({
     title: String,
     content: String,
+    race: String,
     background: String
 })
 var PostModel = mongoose.model('post', postSchema);
@@ -34,11 +35,13 @@ app.post('/api/posts', function(req, res){
     console.log("post successful");
     console.log(req.body.title);
     console.log(req.body.content);
+    console.log(req.body.race);
     console.log(req.body.background);
 
     PostModel.create({
         title: req.body.title,
         content: req.body.content,
+        race: req.body.race,
         background: req.body.background
     });
     res.send("Post added successfully");
@@ -64,6 +67,7 @@ app.put('/api/posts/:id', function(req, res){
     console.log("Update called on"+req.params.id);
     console.log(req.body.title);
     console.log(req.body.content);
+    console.log(req.body.race);
     console.log(req.body.background);
 
     PostModel.findByIdAndUpdate(req.params.id, req.body, function(err, data)
