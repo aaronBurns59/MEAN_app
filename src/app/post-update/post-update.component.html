@@ -9,19 +9,30 @@
         required
         minlength="3"
         #title="ngModel">
-      <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
+      <mat-error *ngIf="title.invalid">Change Character's Name.</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <textarea
+      <input
         matInput
         rows="4"
         name="content"
         ngModel={{post.content}}
         required
-        #content="ngModel"></textarea>
-      <mat-error *ngIf="content.invalid">Please enter a post title.</mat-error>
+        #content="ngModel">
+      <mat-error *ngIf="content.invalid">Change Character's Class.</mat-error>
     </mat-form-field>
-    <button mat-button 
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="background"
+        ngModel={{post.background}}
+        required
+        minlength="3"
+        #backgound="ngModel">
+        <mat-error *ngIf="background.invalid">Change Character's Background</mat-error>
+    </mat-form-field>
+    <button mat-button
       color="primary"
       type="submit">Update Post</button>
   </form>
