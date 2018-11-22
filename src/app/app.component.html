@@ -13,9 +13,10 @@
     
       <mat-toolbar-row>
 
-  <button mat-button [routerLink]="['/create']">Create New Character</button>
-  <button mat-button [routerLink]="['/list']">Display List of Characters</button>
+<i class="material-icons">edit</i><button mat-button [routerLink]="['/create']">Create New Character</button>
+<i class="material-icons">remove_red_eye</i> <button mat-button [routerLink]="['/list']">Display List of Characters</button>
 </mat-toolbar-row>
  </mat-toolbar>
+
 
 <router-outlet></router-outlet>
