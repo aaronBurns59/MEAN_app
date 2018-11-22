@@ -29,7 +29,7 @@ export class PostUpdateComponent implements OnInit {
 
   onEditPost(form: NgForm)
   {
-      this.service.updatePost(this.post._id, form.value.title, form.value.content, form.value.race, form.value.background)
+      this.service.updatePost(this.post._id, form.value.title, form.value.content, form.value.race, form.value.background, form.value.level)
       .subscribe(() =>
         {
           this.router.navigate(['/list']);

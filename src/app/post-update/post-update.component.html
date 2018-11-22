@@ -1,50 +1,31 @@
 <mat-card>
   <form (submit)="onEditPost(postForm)" #postForm="ngForm">
+
     <mat-form-field>
-      <input placeholder="Name"
-        matInput
-        type="text"
-        name="title"
-        ngModel={{post.title}}
-        required
-        minlength="3"
-        #title="ngModel">
+      <input placeholder="Name" matInput type="text" name="title" ngModel={{post.title}} required #title="ngModel">
       <mat-error *ngIf="title.invalid">Change Character's Name.</mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input placeholder="Class"
-        matInput
-        rows="4"
-        name="content"
-        ngModel={{post.content}}
-        required
-        #content="ngModel">
+      <input placeholder="Class" matInput type=text name="content" ngModel={{post.content}} required #content="ngModel">
       <mat-error *ngIf="content.invalid">Change Character's Class.</mat-error>
     </mat-form-field>
 
     <mat-form-field>
-        <input placeholder="Race"
-          matInput
-          rows="4"
-          name="race"
-          ngModel={{post.race}}
-          required
-          #race="ngModel">
+        <input placeholder="Race" matInput rows="4" name="race" ngModel={{post.race}} required #race="ngModel">
         <mat-error *ngIf="race.invalid">Change Character's Race.</mat-error>
       </mat-form-field>
 
     <mat-form-field>
-      <input placeholder="Background"
-        matInput
-        type="text"
-        name="background"
-        ngModel={{post.background}}
-        required
-        minlength="3"
-        #backgound="ngModel">
+      <input placeholder="Background" matInput type="text" name="background" ngModel={{post.background}} required #backgound="ngModel">
         <mat-error *ngIf="background.invalid">Change Character's Background</mat-error>
     </mat-form-field>
+
+    
+    <mat-form-field>
+        <input placeholder="Level" matInput type="text" name="level" ngModel={{post.level}} required #backgound="ngModel">
+          <mat-error *ngIf="level.invalid">Change Character's Background</mat-error>
+      </mat-form-field>
 
     <button mat-button
       color="primary"

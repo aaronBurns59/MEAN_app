@@ -3,5 +3,5 @@ export interface Post {
   content: string;
   race: string;
   background: string;
- 
+  level:Number;
 }

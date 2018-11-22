@@ -13,7 +13,8 @@ import { MatInputModule,
   MatButtonModule,
   MatIconModule,
   MatToolbarModule,
-  MatExpansionModule} from '@angular/material';
+  MatExpansionModule,
+  MatSelectModule} from '@angular/material';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostUpdateComponent } from './post-update/post-update.component';
 
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatSelectModule,
   MatCardModule,
   MatButtonModule,
   MatToolbarModule,
