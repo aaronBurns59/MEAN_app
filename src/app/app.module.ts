@@ -32,6 +32,10 @@ const appRoutes: Routes = [
   {
     path: 'update/:id',
     component: PostUpdateComponent
+  },
+  {
+    path: 'stats',
+    component: StatsComponent
   }
 ];
 

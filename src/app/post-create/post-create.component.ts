@@ -10,7 +10,6 @@ import {MatSelectModule} from '@angular/material/select';
 })
 export class PostCreateComponent implements OnInit {
 
-
   constructor(private service:PostService) { }
 
   onAddPost(form: NgForm) {

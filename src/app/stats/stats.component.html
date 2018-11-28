@@ -1,3 +1,5 @@
-<p>
-  stats works!
-</p>
+<mat-toolbar color="warn">Character Stats/Abilities</mat-toolbar>
+
+<form (submit)="DiceRoller()" #postForm="ngForm">
+  <button mat-button color="warn" type="submit">Roll</button>
+</form>

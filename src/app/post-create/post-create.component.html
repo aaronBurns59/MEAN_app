@@ -1,36 +1,31 @@
+
+<mat-toolbar color="warn">Character Creator</mat-toolbar>
 <mat-card>
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
-
-    <!--Name Form-->
     <mat-form-field>
       <input placeholder="Name" matInput type="text" name="title" ngModel required minlength="3" #title="ngModel">
       <mat-error *ngIf="title.invalid">Character's Name.</mat-error>
     </mat-form-field>
 
-    <!--Class Form-->
     <mat-form-field>
       <input placeholder="Class" matInput type="text" name="content" ngModel required #content="ngModel">
       <mat-error *ngIf="content.invalid">Character's Class.</mat-error>
     </mat-form-field>
 
-    <!--Race Form-->
     <mat-form-field>
-      <input placeholder="Race" matInput type="text" name="race" ngModel={{post.race}} required #race="ngModel">
-      <mat-error *ngIf="race.invalid">Change Character's Race.</mat-error>
+      <input placeholder="Race" matInput type="text" name="race" ngModel required minlength="3" #race="ngModel">
+      <mat-error *ngIf="race.invalid">Character's Race.</mat-error>
     </mat-form-field>
 
-    <!--Background Form-->
     <mat-form-field>
-      <input placeholder="Background" matInput type="text" name="background" ngModel={{post.background}} required #background="ngModel">
-      <mat-error *ngIf="background.invalid">Change Character's Background.</mat-error>
+      <input placeholder="Background" matInput type="text" name="background" ngModel required #background="ngModel">
+      <mat-error *ngIf="background.invalid">Character's Background.</mat-error>
     </mat-form-field>
 
-    <!--Level Form-->
- <!--   <mat-form-field>
-        <input placeholder="Level" matInput type="text" name="level" ngModel required #background="ngModel">
-        <mat-error *ngIf="level.invalid">Character's Level.</mat-error>
-      </mat-form-field>-->
-
+    <mat-form-field>
+      <input placeholder="Level" matInput type="text" name="level" ngModel required #level="ngModel">
+      <mat-error *ngIf="level.invalid">Character's Level.</mat-error>
+    </mat-form-field>
   
     <button mat-button 
       color="primary"

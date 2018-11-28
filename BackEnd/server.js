@@ -49,6 +49,7 @@ app.post('/api/posts', function(req, res){
     });
     res.send("Post added successfully");
 })
+
 //gets the post from the mlab database
 app.get('/api/posts', function(req, res){
     PostModel.find(function(err, post){

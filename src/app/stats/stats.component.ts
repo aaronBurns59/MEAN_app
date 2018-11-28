@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PostService} from '../services/post.service';
 
 @Component({
   selector: 'app-stats',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:PostService) { }
 
   ngOnInit() {
+  }
+
+ DiceRoller()
+  {
+   this.service.rollDice();
   }
 
 }

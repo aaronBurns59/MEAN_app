@@ -1,17 +1,9 @@
 
- <!-- <ul>
-  <li *ngFor="let p of posts">
-      
-     <p>{{p.title}}</p>
-     <p>{{p.content}}</p>
-     <p><button>Edit</button><button>Delete</button></p>
-</ul>  -->
-
 <mat-toolbar color="warn">Character List</mat-toolbar>
 <mat-accordion multi="true" *ngIf="posts.length > 0">
   <mat-expansion-panel [expanded]="false" *ngFor="let post of posts">
     <mat-expansion-panel-header>
-     Name: {{ post.title }}
+     {{ post.title }}
     </mat-expansion-panel-header>
     <p>Class: {{ post.content }}</p>
     <p>Race: {{ post.race }}</p>
