@@ -55,11 +55,5 @@ export class PostService {
     var smallestNum=9999
 
     console.log(roll1 + " " + roll2);
-
-
-  
-
-   
   }
-
 }
