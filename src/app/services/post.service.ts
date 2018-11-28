@@ -45,40 +45,32 @@ export class PostService {
     return this.http.put("http://localhost:8081/api/posts/" + id, post);
   }
 
-  rollDice()
+   rollDice():any
   {
     const dice = new Dice();
-    const roll1 = dice.roll("1d6").total;
+
+    const roll1= dice.roll("1d6").total;
     const roll2= dice.roll("1d6").total;
     const roll3= dice.roll("1d6").total;
     const roll4= dice.roll("1d6").total;
-    var smallestNum=9999
+    var smallestNum=9999;
+    var total=0;
 
-    console.log(roll1 + " " + roll2);
+    for(var i=0;i<4;i++)
+    {
+      if(roll1 <smallestNum)
+      smallestNum=roll1;
+      if(roll2 <smallestNum)
+      smallestNum=roll2;
+      if(roll3 <smallestNum)
+      smallestNum=roll3;
+      if(roll4 <smallestNum)
+      smallestNum=roll4;
+    }//for
 
-    /*
-    int stats[]= new int[6];
-		int rolls[] = new int[4];
-		int i, j;
-		int num1, num2, num3;
-		int smallestNum=9999;
-		int statSum=0;
-	  	
-	
-			  for(i=0;i<4;i++)
-			  {
-				  rolls[i]= (int) (Math.random()*6+1);
-				  if(rolls[i] < smallestNum)
-					  smallestNum= rolls[i];	  
-			  }
-	
-			  for(i=0;i<4;i++)
-			  {				  
-				  for(j=0;j<6;j++)
-					  stats[j]+=rolls[i];
-			  }
-			  for(j=0;j<6;j++)
-System.out.println(stats[j]-smallestNum);
-    */
+    total= roll1+roll2+roll3+roll4-smallestNum;
+
+    console.log(total);
+ 
   }
 }

@@ -8,14 +8,22 @@ import {PostService} from '../services/post.service';
 })
 export class StatsComponent implements OnInit {
 
-  constructor(private service:PostService) { }
+  stats = new Array<number>(6);
+  
+  constructor(private service:PostService ) { }
 
   ngOnInit() {
   }
 
- DiceRoller()
+  DiceRoller():any
   {
-   this.service.rollDice();
+    
+    for(var i=0;i<this.stats.length;i++)
+    {
+      this.stats[i]=this.service.rollDice();
+    }
+    console.log(this.stats);
+    return this.stats
   }
 
 }

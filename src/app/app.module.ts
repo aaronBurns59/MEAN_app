@@ -18,6 +18,8 @@ import { MatInputModule,
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostUpdateComponent } from './post-update/post-update.component';
 import { StatsComponent } from './stats/stats.component';
+import { Dice } from "dice-typescript";
+
 
 
 const appRoutes: Routes = [
