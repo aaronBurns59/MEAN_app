@@ -17,6 +17,8 @@ import { MatInputModule,
   MatSelectModule} from '@angular/material';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostUpdateComponent } from './post-update/post-update.component';
+import { StatsComponent } from './stats/stats.component';
+
 
 const appRoutes: Routes = [
   {
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     AppComponent,
     PostDetailsComponent,
     PostCreateComponent,
-    PostUpdateComponent
+    PostUpdateComponent,
+    StatsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

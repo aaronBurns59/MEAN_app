@@ -17,14 +17,13 @@
       </mat-form-field>
 
     <mat-form-field>
-      <input placeholder="Background" matInput type="text" name="background" ngModel={{post.background}} required #backgound="ngModel">
-        <mat-error *ngIf="background.invalid">Change Character's Background</mat-error>
+      <input placeholder="Background" matInput type="text" name="background" ngModel={{post.background}} required #background="ngModel">
+      <mat-error *ngIf="background.invalid">Change Character's Background.</mat-error>
     </mat-form-field>
 
-    
     <mat-form-field>
-        <input placeholder="Level" matInput type="text" name="level" ngModel={{post.level}} required #backgound="ngModel">
-          <mat-error *ngIf="level.invalid">Change Character's Background</mat-error>
+        <input placeholder="Level" matInput type="text" name="level" ngModel={{post.level}} required #level="ngModel">
+          <mat-error *ngIf="level.invalid">Change Character's Level</mat-error>
       </mat-form-field>
 
     <button mat-button
