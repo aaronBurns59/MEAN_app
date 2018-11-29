@@ -70,7 +70,9 @@ export class PostService {
 
     total= roll1+roll2+roll3+roll4-smallestNum;
 
-    console.log(total);
+    //console.log(total);
+
+    return total
  
   }
 }

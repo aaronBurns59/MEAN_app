@@ -8,9 +8,10 @@ import {PostService} from '../services/post.service';
 })
 export class StatsComponent implements OnInit {
 
-  stats = new Array<number>(6);
+  stats= new Array<Number>(6);
   
-  constructor(private service:PostService ) { }
+  
+  constructor(private service:PostService) { }
 
   ngOnInit() {
   }
