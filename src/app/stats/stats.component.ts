@@ -23,7 +23,7 @@ export class StatsComponent implements OnInit {
     {
       this.stats[i]=this.service.rollDice();  
     }
-    console.log(this.stats);
+    //console.log(this.stats);
     return this.stats
   
   }
