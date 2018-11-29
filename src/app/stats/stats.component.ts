@@ -18,12 +18,10 @@ export class StatsComponent implements OnInit {
 
   DiceRoller():any
   {
-    
     for(var i=0;i<this.stats.length;i++)
     {
-      this.stats[i]=this.service.rollDice();
+      this.stats[i]=this.service.rollDice();  
     }
-    console.log(this.stats);
     return this.stats
   }
 

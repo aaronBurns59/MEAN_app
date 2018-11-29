@@ -48,7 +48,6 @@ export class PostService {
    rollDice():any
   {
     const dice = new Dice();
-
     const roll1= dice.roll("1d6").total;
     const roll2= dice.roll("1d6").total;
     const roll3= dice.roll("1d6").total;
@@ -70,9 +69,6 @@ export class PostService {
 
     total= roll1+roll2+roll3+roll4-smallestNum;
 
-    //console.log(total);
-
     return total
- 
   }
 }
