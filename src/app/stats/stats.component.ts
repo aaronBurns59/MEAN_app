@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from '../services/post.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-stats',
@@ -22,7 +23,15 @@ export class StatsComponent implements OnInit {
     {
       this.stats[i]=this.service.rollDice();  
     }
+    console.log(this.stats);
     return this.stats
+  
+  }
+
+  onAddStat(form:NgForm)
+  {
+    this.service.addStat(form.value.stats).subscribe();
+   
   }
 
 }

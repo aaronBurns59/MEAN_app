@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Post} from '../post.model';
 import { Dice } from "dice-typescript";
+import {Stat} from '../stat';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,11 @@ export class PostService {
   addPost(title: string, content: string, race: string, background: string, level: Number): Observable<any> {
     const post: Post = {title: title, content: content, race: race, background: background, level:level};
     return this.http.post("http://localhost:8081/api/posts",post);
+  }
+
+  addStat(stats:Array<Number>){
+    const stat: Stat ={stats:stats};
+    return this.http.post("http://localhost:8081/api/stats",stat);
   }
 
   //deletes a post in the client by getting it in the database
@@ -68,7 +75,10 @@ export class PostService {
     }//for
 
     total= roll1+roll2+roll3+roll4-smallestNum;
+    
 
-    return total
+
+    return total;
+    
   }
 }

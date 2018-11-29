@@ -17,7 +17,12 @@ var postSchema = new Schema({
     background: String,
     level: Number
 })
+var statSchema= new Schema({
+    stats:Array
+})
+
 var PostModel = mongoose.model('post', postSchema);
+var StatModel = mongoose.model('stat', statSchema);
 
 //Here we are configuring express to use body-parser as middle-ware. 
 app.use(bodyParser.urlencoded({ extended: false })); 
@@ -50,10 +55,26 @@ app.post('/api/posts', function(req, res){
     res.send("Post added successfully");
 })
 
+app.post('/api/stats', function(req, res){
+    console.log("stats post successful");
+    console.log(req.body.stats);
+   
+    StatModel.create({
+        stats:req.body.stats,
+    });
+    res.send("Stat added successful");
+})
+
 //gets the post from the mlab database
 app.get('/api/posts', function(req, res){
     PostModel.find(function(err, post){
         res.json(post);
+    });
+})
+
+app.get('/api/stats', function(req, res){
+    StatModel.find(function(err, stat){
+        res.json(stat);
     });
 })
 
@@ -67,6 +88,15 @@ app.get('/api/posts/:id', function(req, res){
     });
 })
 
+app.get('/api/stats/:id', function(req, res){
+    console.log("Read Doc with id"+ req.params.id);
+
+    StatModel.findById(req.params.id, function(err, data)
+    {
+        res.json(data);
+    })
+})
+
 app.put('/api/posts/:id', function(req, res){
     console.log("Update called on"+req.params.id);
     console.log(req.body.title);
@@ -75,9 +105,17 @@ app.put('/api/posts/:id', function(req, res){
     console.log(req.body.background);
     console.log(req.body.level);
     
-
     PostModel.findByIdAndUpdate(req.params.id, req.body, function(err, data)
     {
+        res.send(data);
+    })
+})
+
+app.put('/api/stats/:id', function(req, res){
+    console.log("Update called on"+req.params.id);
+    console.log(req.body.stats);
+
+    StatModel.findByIdAndUpdate(req.params.id, req.body, function(err, data){
         res.send(data);
     })
 })
@@ -94,6 +132,18 @@ app.delete('/api/posts/:id', function(req, res){
         res.send(data);
     });
 });
+
+app.delete('/api/stats/:id', function(req,res){
+    console.log(req.params.id);
+    StatModel.deleteOne({_id:req.params.id}, function(err, data)
+    {
+        if(err)
+        {
+            res.send(err)
+        }
+        res.send(data);
+    });
+})
 
 //connects the server to the port localhost:8081
 var server = app.listen(8081, function () {

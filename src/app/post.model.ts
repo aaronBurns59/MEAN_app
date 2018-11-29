@@ -4,5 +4,4 @@ export interface Post {
   race: string;
   background: string;
   level:Number;
-  //stats:Number[];
 }
