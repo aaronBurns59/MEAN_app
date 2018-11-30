@@ -12,10 +12,7 @@ export class PostUpdateComponent implements OnInit {
 
   post: any = [];
 
-  constructor(private route:ActivatedRoute, private service:PostService, private router:Router)
-  {
-
-  }
+  constructor(private route:ActivatedRoute, private service:PostService, private router:Router){}
    //client side callback method
   ngOnInit() {
     console.log(this.route.snapshot.params['id']);

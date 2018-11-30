@@ -1,3 +1,3 @@
-export class Stat {
+export interface Stat {
     stats:Array<Number>;
 }

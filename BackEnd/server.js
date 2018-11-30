@@ -1,3 +1,4 @@
+//need these variables to communicate with server
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -60,7 +61,7 @@ app.post('/api/stats', function(req, res){
     console.log(req.body.stats);
    
     StatModel.create({
-        stats:req.body.stats,
+        stats: req.body.stats
     });
     res.send("Stat added successful");
 })
@@ -111,14 +112,6 @@ app.put('/api/posts/:id', function(req, res){
     })
 })
 
-app.put('/api/stats/:id', function(req, res){
-    console.log("Update called on"+req.params.id);
-    console.log(req.body.stats);
-
-    StatModel.findByIdAndUpdate(req.params.id, req.body, function(err, data){
-        res.send(data);
-    })
-})
 
 //deletes an entry from the mlab database
 app.delete('/api/posts/:id', function(req, res){
@@ -132,18 +125,6 @@ app.delete('/api/posts/:id', function(req, res){
         res.send(data);
     });
 });
-
-app.delete('/api/stats/:id', function(req,res){
-    console.log(req.params.id);
-    StatModel.deleteOne({_id:req.params.id}, function(err, data)
-    {
-        if(err)
-        {
-            res.send(err)
-        }
-        res.send(data);
-    });
-})
 
 //connects the server to the port localhost:8081
 var server = app.listen(8081, function () {
