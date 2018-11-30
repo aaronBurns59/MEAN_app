@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
 export class StatsComponent implements OnInit {
 
   stats= Array<Number>(6);
-  
+
   constructor(private service:PostService) { }
 
   ngOnInit() {
@@ -24,9 +24,7 @@ export class StatsComponent implements OnInit {
     }
     console.log(this.stats);
     return this.stats
-  
   }
-
   onAddStat(form:NgForm){
     this.service.addStat(form.value.stats).subscribe();
     console.log(form.value);

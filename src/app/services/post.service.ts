@@ -25,7 +25,7 @@ export class PostService {
     return this.http.post("http://localhost:8081/api/posts", post);
   }
 
-  addStat(stats: Array<Number>):Observable<any> {
+  addStat(stats: Array<Number>) :Observable<any> {
     const stat: Stat = { stats: stats };
     return this.http.post("http://localhost:8081/api/stats", stat);
   }
