@@ -49,7 +49,7 @@ export class PostService {
     return this.http.put("http://localhost:8081/api/posts/" + id, post);
   }
 
-  //roll dice methods implements the import of the typescript dice install from the ""
+  //roll dice methods implements the import of the typescript dice install from the "https://www.npmjs.com/package/dice-typescript"
   //returns the total value summed from 4 dice minus the smallest dice value
   rollDice(): any {
     const dice = new Dice();
