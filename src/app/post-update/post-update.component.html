@@ -1,7 +1,8 @@
 <mat-toolbar color="warn">Character Updater</mat-toolbar>
 <mat-card>
   <form (submit)="onEditPost(postForm)" #postForm="ngForm">
-
+      <!--90% identical to the create component except the data is read back in and
+      not saved as an input until you hit the update button -->
     <mat-form-field>
       <input placeholder="Name" matInput type="text" name="title" ngModel={{post.title}} required #title="ngModel">
       <mat-error *ngIf="title.invalid">Change Character's Name.</mat-error>

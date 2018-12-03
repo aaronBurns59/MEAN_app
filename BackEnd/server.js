@@ -18,10 +18,13 @@ var postSchema = new Schema({
     background: String,
     level: Number
 })
+//second schema used for different model
 var statSchema= new Schema({
     stats:Array
 })
 
+//Initializing the vars that will create the data for the DB passing
+//the respective schema and the appropriate collection
 var PostModel = mongoose.model('post', postSchema);
 var StatModel = mongoose.model('stat', statSchema);
 
@@ -29,6 +32,7 @@ var StatModel = mongoose.model('stat', statSchema);
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json());
 
+//allows the use of different http methods
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
@@ -37,7 +41,7 @@ app.use(function(req, res, next) {
     next();
     });
 
-//writes a new entry into the database 
+//writes a new entry into the database for the posts model
 app.post('/api/posts', function(req, res){
     console.log("post successful");
     console.log(req.body.title);
@@ -46,6 +50,7 @@ app.post('/api/posts', function(req, res){
     console.log(req.body.background);
     console.log(req.body.level);
 
+    //creates the data for the DB
     PostModel.create({
         title: req.body.title,
         content: req.body.content,
@@ -56,6 +61,11 @@ app.post('/api/posts', function(req, res){
     res.send("Post added successfully");
 })
 
+//does the same but for the stats model
+//NOT FUNCITONING PROPERLY
+//PROBLEM WITH SENDING THE ARRAY
+//IT DOESNT SEND THE DATA INSIE THE ARRAY
+//ONLY THE ARRAY SHELL ITSELF
 app.post('/api/stats', function(req, res){
     console.log("stats post successful");
     console.log(req.body.stats);
@@ -73,31 +83,19 @@ app.get('/api/posts', function(req, res){
     });
 })
 
-app.get('/api/stats', function(req, res){
-    StatModel.find(function(err, stat){
-        res.json(stat);
-    });
-})
-
-//update server
+//Need to find the id of the post you want to update
+// before you can actually update it
 app.get('/api/posts/:id', function(req, res){
     console.log("Read doc with id"+ req.params.id);
-
+    //finding the data in the db using the model
     PostModel.findById(req.params.id, function(err, data)
     {
         res.json(data);
     });
 })
 
-app.get('/api/stats/:id', function(req, res){
-    console.log("Read Doc with id"+ req.params.id);
-
-    StatModel.findById(req.params.id, function(err, data)
-    {
-        res.json(data);
-    })
-})
-
+//actually updates the data in the db once the user is 
+//satified with what they altered
 app.put('/api/posts/:id', function(req, res){
     console.log("Update called on"+req.params.id);
     console.log(req.body.title);
@@ -114,10 +112,12 @@ app.put('/api/posts/:id', function(req, res){
 
 
 //deletes an entry from the mlab database
+//finds the item in the db using an ids
 app.delete('/api/posts/:id', function(req, res){
     console.log(req.params.id);
     PostModel.deleteOne({_id:req.params.id}, function(err, data)
     {
+        //catches any error
         if(err)
         {
             res.send(err)
@@ -131,5 +131,5 @@ var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
    
-   console.log("Example app listening at http://%s:%s", host, port)
+   console.log("Listening at http://%s:%s", host, port)
 })

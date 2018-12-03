@@ -19,9 +19,13 @@ import { PostCreateComponent } from './post-create/post-create.component';
 import { PostUpdateComponent } from './post-update/post-update.component';
 import { StatsComponent } from './stats/stats.component';
 import { Dice } from "dice-typescript";
+//all of the above imports are used in this app 
+//theyy must also be declared in the imports  below
 
 
-
+//this const is what allows us to route between components
+//mimicing a page transition(Angular is single paged)
+//all components need to be givin a route name 
 const appRoutes: Routes = [
   {
     path: 'list',

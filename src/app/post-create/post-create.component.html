@@ -1,9 +1,10 @@
-
+<!--angular materials are used instead of basic html to add to the appeals and keep a consistant theme-->
 <mat-toolbar color="warn">Character Creator</mat-toolbar>
 <mat-card>
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field>
-      <input placeholder="Name" matInput type="text" name="title" ngModel required minlength="3" #title="ngModel">
+      <!--All components of the model for posts are read in using the same format-->
+      <input placeholder="Name" matInput type="text" name="title" ngModel required #title="ngModel">
       <mat-error *ngIf="title.invalid">Character's Name.</mat-error>
     </mat-form-field>
 
@@ -13,7 +14,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input placeholder="Race" matInput type="text" name="race" ngModel required minlength="3" #race="ngModel">
+      <input placeholder="Race" matInput type="text" name="race" ngModel required  #race="ngModel">
       <mat-error *ngIf="race.invalid">Character's Race.</mat-error>
     </mat-form-field>
 
@@ -31,5 +32,4 @@
       color="primary"
       type="submit">Save Post</button>
   </form>
-
 </mat-card>
